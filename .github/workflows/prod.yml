@@ -50,7 +50,7 @@ jobs:
           ECR_REPOSITORY: "jones"
           IMAGE_TAG: ${{ steps.tag_version.outputs.tag }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f /Deploy-CV-App-ECS/myWebCVApp/Dockerfile .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f /d010624-tf-ecs-proj-main/Deploy-CV-App-ECS/myWebCVApp/Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
       - name: Fill in the new image ID in the Amazon ECS task definition
