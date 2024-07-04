@@ -1,0 +1,70 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:eu-west-1:194626909496:task-definition/jones:1",
+    "containerDefinitions": [
+        {
+            "name": "jones",
+            "image": "194626909496.dkr.ecr.eu-west-1.amazonaws.com/jones",
+            "cpu": 1024,
+            "memory": 2048,
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/jones/ecs/app",
+                    "awslogs-region": "eu-west-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "jones",
+    "taskRoleArn": "arn:aws:iam::194626909496:role/jones-ecs-task-role",
+    "executionRoleArn": "arn:aws:iam::194626909496:role/jones-ecs-task-exec-role",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "2048",
+    "registeredBy": "arn:aws:sts::194626909496:assumed-role/GithubActions/github-actions",
+    "tags": []
+}
